@@ -8,9 +8,9 @@ This is a layer-2 solution, built on the set-in-stone Bitcoin protocol and the c
 
 The protocol supports high-concurrency chaining of data from the same mnemonic account, encryption and decryption of each record using unpredictable random public-private keys, sharing of encrypted data between multiple users, and other features.
 
-[Protocol English version](./Protocol-User-Protoco-English.md)
+[Protocol English version](./NOTE-User-Protocol-English.md)
 
-[Protocol Chinese version](./Protocol-User-Protoco-Chinese.md)
+[Protocol Chinese version](./NOTE-User-Protocol-Chinese.md)
 
 If there are any language errors or logic problems, please let us know.
 
@@ -24,9 +24,9 @@ If there are any language errors or logic problems, please let us know.
 
 这个协议支持了同一个助记词账号的数据高并发上链，每一条记录使用无法预测的随机公私钥加密解密，多用户之间的加密数据的分享，以及其他特性。
 
-[中文版协议](./Protocol-User-Protoco-Chinese.md)
+[中文版协议](./NOTE-User-Protocol-Chinese.md)
 
-[英文版协议](./Protocol-User-Protoco-English.md)
+[英文版协议](./NOTE-User-Protocol-English.md)
 
 如果有任何语言错误或者逻辑问题，请告知
 
