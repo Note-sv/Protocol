@@ -6,7 +6,7 @@
 
 >The content of this article is the user agreement White Paper. Users of NoteSV software can use this protocol to recover all their personal data with their own mnemonics.
 
->For commercial use of this agreement, please contact support@chainbow. for a paid licensing and a more detailed technical white paper.
+>For commercial use of this agreement, please contact support@chainbow.io for a paid licensing and a more detailed technical white paper.
 
 ## 1. Introduction
 
