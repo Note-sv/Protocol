@@ -29,7 +29,7 @@ The protocol supports high-concurrency chaining of data from the same mnemonic a
 
 ### 2.3 Bitcom
 
-[Bitcom](https://bitcom.bitdb.network/#/?id=bitcom) protocol defines each account namespace.
+[Bitcom](https://bitcom.planaria.network/#/?id=bitcom) protocol defines each account namespace.
 
 ## 3. NOTE Protocol
 ### 3.1 Derived Index and Private Key Derivation Path
