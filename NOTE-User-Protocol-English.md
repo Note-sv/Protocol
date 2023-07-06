@@ -2,42 +2,42 @@
 
 >Copyright notice and instructions
 
->ChainBow Co. Ltd. And the author Long LI reserve all rights. It is also publicly licensed for non-commercial applications based on the BitcoinSV blockchain network. No liability shall be assumed for any errors or inaccuracies that may arise in this document.
+>ChainBow Co. Ltd. and author Long LI retain all rights. This document is publicly licensed for non-commercial applications based on the BitcoinSV blockchain network. No liability is assumed for any errors or inaccuracies that may appear in this document.
 
->The content of this article is the user agreement White Paper. Users of NoteSV software can use this protocol to recover all their personal data with their own mnemonics.
+>This document is a user agreement white paper. Users of NoteSV software can use this protocol to recover all their personal data using their own mnemonics.
 
->For commercial use of this agreement, please contact support@chainbow.io for a paid licensing and a more detailed technical white paper.
+>For commercial use of this agreement, please contact support@chainbow.io for paid licensing and a more detailed technical white paper.
 
 ## 1. Introduction
 
-We propose a new protocol for private data storage in distributed peer-to-peer Internet, which uses the underlying blockchain to store the data in a directed graph structure. The protocol uses BIP32 standard to determine the generating rules of the private key, uses the Electrum BIE1 ECIES algorithm to encrypt the data, specifies the storage format of the data, and realizes the rules of adding, deleting, changing and sharing the data.
+We propose a new protocol for private data storage in a distributed peer-to-peer internet, which uses the underlying blockchain to store the data in a directed graph structure. The protocol uses the BIP32 standard to determine the rules for generating the private key, employs the Electrum BIE1 ECIES algorithm to encrypt the data, specifies the data storage format, and implements the rules for adding, modifying, deleting, and sharing the data.
 
-According to the NOTE protocol, your information security does not need to trust any third party, to achieve data security and storage security, only mnemonic holders can access. And the data is not stored on a specified third party server or cloud service.
+According to the NOTE protocol, your information security does not require trust in any third party. Data security and storage security are achieved, and only mnemonic holders can access the data. The data is not stored on a specific third-party server or cloud service.
 
-This is a layer-2 solution, built on the set-in-stone Bitcoin protocol and the consensus rule of the blockchain.
+This is a layer-2 solution, built on the immutable Bitcoin protocol and the consensus rule of the blockchain.
 
-The protocol supports high-concurrency chaining of data from the same mnemonic account, encryption and decryption of each record using unpredictable random public-private keys, sharing of encrypted data between multiple users, and other features.
+The protocol supports high-concurrency chaining of data from the same mnemonic account, encryption and decryption of each record using unpredictable random public-private keys, sharing of encrypted data among multiple users, and other features.
 
-## 2. Prepare the knowledge
+## 2. Prerequisite Knowledge
 ### 2.1 BIP32
 
-[BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) defined an algorithm of private key derived from mnemonic. The corresponding public key and public key Hash (i.e. address) can be obtained by the private key.
+[BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) defines an algorithm for deriving a private key from a mnemonic. The corresponding public key and public key hash (i.e., address) can be obtained from the private key.
 
 ### 2.2 Electrum BIE1 ECIES
 
-[Electrum BIE1 ECIES](https://github.com/benw46/BIE1) defined how to encrypt and decrypt data using the elliptic curve algorithm.
+[Electrum BIE1 ECIES](https://github.com/benw46/BIE1) defines how to encrypt and decrypt data using the elliptic curve algorithm.
 
 ### 2.3 Bitcom
 
-[Bitcom](https://bitcom.bitdb.network/#/?id=bitcom) protocol defined each account namespace.
+[Bitcom](https://bitcom.bitdb.network/#/?id=bitcom) protocol defines each account namespace.
 
 ## 3. NOTE Protocol
-### 3.1 Derived index and private key derived path
+### 3.1 Derived Index and Private Key Derivation Path
 
 ```plain
 m/purpose'/coin_type'/account'/target/quotient/remainder
 ```
-define:
+where:
 
 ```plain
 purpose = 44
@@ -45,50 +45,51 @@ coin_type=236
 account=0
 target=2
 ```
-A 64 bit number is randomly generated as a derived index, and quotient and remainder are calculated. The index is IEEE754 compliant and requires between 1 and 2 ^ 53-1.
+A 64-bit number is randomly generated as a derived index, and the quotient and remainder are calculated. The index complies with IEEE754 and requires a value between 1 and 2^53-1.
 
 ```javascript
   const Hardened = 0x80000000
   const quotient = Math.floor(index / Hardened)
   const remainder = index % Hardened
 ```
-The full derivation path is
+The full derivation path is:
 ```javascript
   const extPath = `m/44'/236'/0'/2/${quotient}/${remainder}`
 ```
-### 3.2 Root private key and root address
+### 3.2 Root Private Key and Root Address
 
-The root private key is derived based on the following path
+The root private key is derived based on the following path:
 
 ```javascript
   const extPath = `m/44'/236'/0'`
 ```
-### 3.3 Storage format
+### 3.3 Storage Format
 
-The data is stored as OP_RETURN value and is divided into four parts:
+The data is stored as an OP_RETURN value and is divided into four parts:
 
 ```plain
 OP_FALSE OP_RETURN Root address, derived index, encrypted data, signature
 ```
-And 
+where 
 
-1. Root address: root private key generation
+1. Root address: generated by the root private key
 2. Derived index: a randomly generated 64-bit number
-3. Encrypts data: A key pair created using a derived index, encrypts data using the public key in the pair
+3. Encrypts data: data encrypted using a key pair created with a derived index, using the public key
 4. Signature: the encrypted data is signed using the root private key
 
 ### 3.4 Signature
 
-The signature uses the root private key to sign the SHA256 HASH of the encrypted data. The root address public key can be made public, and anyone can verify that the data has not been forged with the root address public key. For the purpose of determining power.
+The signature uses the root private key to sign the SHA256 hash of the encrypted data. The root address public key can be made public, and anyone can verify that the data has not been tampered with using the root address public key. This is used for determining authority.
 
 ```plain
 sign（sha256( encrypedNote ))
 ```
 ### 3.5 Data Format
 
-User data can be used in any format. The data is encrypted using the Electrum BIE1 ECIES encryption algorithm.
+User data can be in any format. The data is encrypted using the Electrum BIE1 ECIES encryption algorithm.
 
-The following JSON format definition belongs to NoteSV, the secure note and password management software. Other software using the NOTE protocol can be defined
+The following JSON format definition belongs to NoteSV, the secure note and password management software. Other software using the NOTE protocol can define their own formats:
+
 
 ```plain
 {
@@ -107,6 +108,7 @@ The following JSON format definition belongs to NoteSV, the secure note and pass
 }
 ```
 
+Where
 
 * id: main key
 * tpl: template
@@ -114,7 +116,7 @@ The following JSON format definition belongs to NoteSV, the secure note and pass
 * mem: content
 * fid: user name
 * pwd: user password
-* url: link of website
+* url: website link
 * otp: one-time password key
 * tags: tags/labels
 * files: attached files
@@ -122,7 +124,7 @@ The following JSON format definition belongs to NoteSV, the secure note and pass
 * ptx: parent Tx ID
 * tms: Unix timestamp
 
-## 4. Create, update, and delete data
+## 4. Create, Update, and Delete Data
 
 The ID of the data creation is in the form of the current Unix timestamp plus a random number. This allows you to sort ids chronologically and avoid multiple apps that store data concurrently with the account.
 
@@ -130,21 +132,26 @@ Data updates do not change the data id, only the other fields.
 
 The Data ID is not changed when the data is deleted, but the DEL field is set to true.
 
-## 5. Data fetching
+
+## 5. Data Fetching
 
 The root address in the data store is entered into the BITCOM protocol, and all transactions are retrieved using a Bitcom-enabled bitcoin data service provider.
 
+
 ## 6. Data Sharing
 
-Before sharing the data, you need to get the other party’s root public key. The storage format is
+Before sharing the data, you need to get the other party’s root public key. The storage format is:
+
 
 ```plain
 OP_FALSE OP_RETURN Root address, derived index, encrypted data, signature
 ```
 
+Where
+
 1. Root address: get the root address of the other party through the public key
 2. Derived index: set to 0
-3. Encrypts data: encrypts data using the other party’s root public key
+3. Encrypted data: encrypts data using the other party’s root public key
 4. Signature: the encrypted data is signed using your own root private key
 
 ## 7. Data security
