@@ -29,7 +29,7 @@
 
 ### 2.3 Bitcom
 
-[Bitcom](https://bitcom.bitdb.network/#/?id=bitcom)协议定义了每个账号的命名空间。
+[Bitcom](https://bitcom.planaria.network/#/?id=bitcom)协议定义了每个账号的命名空间。
 
 ## 3. NOTE协议
 ### 3.1 派生索引和私钥派生路径
