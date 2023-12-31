@@ -100,7 +100,7 @@ The format and order of data on the blockchain are stipulated as follows:
 - Plaintext HASH:
   - If it is encrypted information, then it is the SHA256 value of the plaintext.
   - If it is public data, then it is 0x00.
-- Data: Plaintext or ciphertext. Data can be either encrypted or public. Original data should be encoded using the msgpack protocol with sorted keys (sortKeys=true).
+- Data: Plaintext or ciphertext. Data can be either encrypted or public. Original data should be encoded using the [Msgpack](https://msgpack.org/) protocol with sorted keys (sortKeys=true).
 - Signature: A signature made using the holder's account private key on the plaintext HASH. This signature can be verified using the holder's account public key. The signature algorithm uses the Bitcoin Message standard. If a public key signature for the transaction can be provided, this field is 0x00; otherwise, a signature is required.
 - Additional Information: Describes the data representation form
   - A 1-byte integer 0x00, indicating the data is encrypted using the holder's account public key.
@@ -202,7 +202,7 @@ ASM:
 4e4f5445 <hash> 0 0 OP_NOP OP_DROP OP_NOP OP_2 OP_PICK OP_DROP OP_8 OP_PICK OP_SHA256 OP_1 OP_PICK OP_EQUAL OP_VERIFY OP_9 OP_PICK OP_2 OP_PICK OP_CHECKSIG OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP
 ```
 
-> The example contract is created using Scrypt.io. 
+> The example contract is created using [Scrypt](https://Scrypt.io). 
 
 Whether it's the simplest contract or more complex ones, in the transaction script formed by the unlocking and locking scripts, the format and order of data must comply with the regulations of this protocol. With support for smart contracts, functionalities like on-chain Oracles and Swaps will also become possible.
 
@@ -295,5 +295,8 @@ Special thanks to the following individuals and teams, listed and unlisted, for 
 
 ### Scrypt
 [Scrypt](https://Scrypt.io) Smart Contract for Bitcoin
+
+### Msgpack
+[Msgpack](https://msgpack.org/) Save every byte.
 
 

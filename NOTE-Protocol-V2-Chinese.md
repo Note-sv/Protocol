@@ -93,7 +93,7 @@ target = 2
 - 明文HASH：
   - 如果是加密信息，则为明文的SHA256值。
   - 如果是公开数据，则为0x00。
-- 数据：明文或密文。数据可为加密或公开数据。原始数据使用msgpack协议编码，需排序键值（sortKeys=true）。
+- 数据：明文或密文。数据可为加密或公开数据。原始数据使用[Msgpack](https://msgpack.org/)协议编码，需排序键值（sortKeys=true）。
 - 签名：使用持有者账号私钥对明文HASH进行的签名。签名可通过持有者账号公钥验证。签名算法采用Bitcoin Message标准。如果可以提供交易的公钥签名，此处为0x00；否则必须有签名。
 - 附加信息：描述数据的表现形式
   - 1字节的整数0x00，表示数据使用了持有者的账号公钥加密。
@@ -192,7 +192,7 @@ ASM:
 4e4f5445 <hash> 0 0 OP_NOP OP_DROP OP_NOP OP_2 OP_PICK OP_DROP OP_8 OP_PICK OP_SHA256 OP_1 OP_PICK OP_EQUAL OP_VERIFY OP_9 OP_PICK OP_2 OP_PICK OP_CHECKSIG OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP OP_NIP
 ```
 
-> 示例合约使用[Scrypt](Scrypt.io)制作。
+> 示例合约使用[Scrypt](https://Scrypt.io)制作。
 
 无论是最简单的合约还是更复杂的合约，在由解锁脚本和锁定脚本构成的交易脚本中，数据的格式和顺序都必须遵循本协议的规定。由于支持智能合约，链上Oracle和Swap等功能也将成为可能。
 
@@ -282,6 +282,9 @@ TODO
 
 ### Scrypt
 [Scrypt](https://Scrypt.io) 带来比特币智能合约
+
+### Msgpack
+[Msgpack](https://msgpack.org/) 节省每一个字节
 
 
 
