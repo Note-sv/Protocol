@@ -281,7 +281,7 @@ TODO
 [Atomicals](https://docs.atomicals.xyz/) 帮助我们更好地理解需求。
 
 ### Scrypt
-[Scrypt](Scrypt.io) 带来比特币智能合约
+[Scrypt](https://Scrypt.io) 带来比特币智能合约
 
 
 

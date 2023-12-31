@@ -294,6 +294,6 @@ Special thanks to the following individuals and teams, listed and unlisted, for 
 [Atomicals](https://docs.atomicals.xyz/) helped us better understand the requirements.
 
 ### Scrypt
-[Scrypt](Scrypt.io) Smart Contract for Bitcoin
+[Scrypt](https://Scrypt.io) Smart Contract for Bitcoin
 
 
