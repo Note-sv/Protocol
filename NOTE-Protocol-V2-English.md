@@ -1,8 +1,5 @@
 # NOTE Protocol(draft)
 
->ChainBow Co. Ltd. and author Long LI retain all rights. No liability is assumed for any errors or inaccuracies that may appear in this document.
-
-
 ## 1. Introduction
 
 The NOTE protocol enables blockchain systems based on the Bitcoin UTXO model to create and manage digital assets. This protocol supports secure encrypted data storage and communication, and is also applicable to public and transparent data storage, including the management of ownership rights for digital assets such as Tokens and NFTs.
@@ -294,3 +291,7 @@ Special thanks to the following individuals and teams, listed and unlisted, for 
 
 ### Scrypt
 [Scrypt](Scrypt.io) Smart Contract for Bitcoin
+
+
+>ChainBow Co. Ltd. and author Long LI retain all rights. No liability is assumed for any errors or inaccuracies that may appear in this document.
+

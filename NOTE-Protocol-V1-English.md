@@ -1,13 +1,5 @@
 # NOTE Protocol User White Paper
 
->Copyright notice and instructions
-
->ChainBow Co. Ltd. and author Long LI retain all rights. This document is publicly licensed for non-commercial applications based on the BitcoinSV blockchain network. No liability is assumed for any errors or inaccuracies that may appear in this document.
-
->This document is a user agreement white paper. Users of NoteSV software can use this protocol to recover all their personal data using their own mnemonics.
-
->For commercial use of this agreement, please contact support@chainbow.io for paid licensing and a more detailed technical white paper.
-
 ## 1. Introduction
 
 We propose a new protocol for private data storage in a distributed peer-to-peer internet, which uses the underlying blockchain to store the data in a directed graph structure. The protocol uses the BIP32 standard to determine the rules for generating the private key, employs the Electrum BIE1 ECIES algorithm to encrypt the data, specifies the data storage format, and implements the rules for adding, modifying, deleting, and sharing the data.
@@ -158,3 +150,7 @@ Where
 ### 7.1 Signature
 
 All data can be verified using the root address public key to determine whether the data was created by the person who owns the root address or by the sharers. The reason for this check is that the person who created the data knew the public key of the encrypted data and forged a piece of data, but did not know the private key of the root address and could not forge the signature.
+
+
+>ChainBow Co. Ltd. and author Long LI retain all rights. No liability is assumed for any errors or inaccuracies that may appear in this document.
+
