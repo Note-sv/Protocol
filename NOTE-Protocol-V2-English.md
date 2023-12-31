@@ -293,5 +293,3 @@ Special thanks to the following individuals and teams, listed and unlisted, for 
 [Scrypt](Scrypt.io) Smart Contract for Bitcoin
 
 
->ChainBow Co. Ltd. and author Long LI retain all rights. No liability is assumed for any errors or inaccuracies that may appear in this document.
-

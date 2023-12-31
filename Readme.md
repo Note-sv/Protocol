@@ -20,10 +20,6 @@ This is a second-layer solution built upon the unshakeable Bitcoin protocol and 
 
 If there are any language errors or logic problems, please let us know.
 
-**Copyright (c) 2020-2024 Long LI, ChainBow Co. Ltd.**
-
-**All rights reserved.**
-
 
 ---
 NOTE协议使基于比特币UTXO模型的区块链能够创建及管理数字资产。该协议支持强加密数据存储与通信，亦适用于公开透明的数据存储，包括Token与NFT等数字资产的所有权管理。
@@ -47,9 +43,14 @@ NOTE协议使基于比特币UTXO模型的区块链能够创建及管理数字资
 
 如果有任何语言错误或者逻辑问题，请告知
 
-版权所有 (c) 2020-2024 李龙, 株式会社ChainBow
 
-所有权利保留。
+## License
+(The MIT License)
 
-support@chainbow.io
+Copyright (c) 2020-2024 LI Long <lilong@gmail.com>
 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

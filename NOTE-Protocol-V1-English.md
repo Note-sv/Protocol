@@ -152,5 +152,3 @@ Where
 All data can be verified using the root address public key to determine whether the data was created by the person who owns the root address or by the sharers. The reason for this check is that the person who created the data knew the public key of the encrypted data and forged a piece of data, but did not know the private key of the root address and could not forge the signature.
 
 
->ChainBow Co. Ltd. and author Long LI retain all rights. No liability is assumed for any errors or inaccuracies that may appear in this document.
-
